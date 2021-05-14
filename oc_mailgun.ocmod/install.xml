@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Mailgun Integration</name>
+	<code>mailgun</code>
+	<version>1.0.0</version>
+	<author>Osama Zowaki</author>
+	<link>https://codylia.com</link>
+
+    <file path='admin/view/template/setting/setting.twig'>
+        <operation>
+            <search>
+                <![CDATA[
+                    <option value="smtp">{{ text_smtp }}</option>
+                ]]>
+            </search>
+            <add position='after'>
+                <![CDATA[
+                    {% endif %}
+
+                    {% if config_mail_engine == 'mailgun' %}
+                        
+                        <option value='mailgun' selected='selected'>Mailgun</option>
+                        
+                        {% else %}
+                        
+                        <option value='mailgun'>Mailgun</option>
+                ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
